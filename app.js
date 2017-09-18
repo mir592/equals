@@ -8,7 +8,7 @@ const layouts      = require('express-ejs-layouts');
 const mongoose     = require('mongoose');
 
 
-mongoose.connect('mongodb://localhost/awesome-project');
+mongoose.connect('mongodb://localhost/awesome-project').then(console.log("conectado a BBDD"));
 
 const app = express();
 
