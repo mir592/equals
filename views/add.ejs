@@ -1,0 +1,28 @@
+<form action="/add" method="POST">
+  <div>
+    <label for="question">Añade una pregunta: </label>
+    <input type="question" name="question">
+  </div>
+  <div>
+    <label for="answA">Answer A:</label>
+    <input type="answA" name="answA">
+  </div>
+  <div>
+    <label for="answB">Answer B:</label>
+    <input type="answB" name="answB">
+  </div>
+  <div>
+      <label for="answC">Answer C:</label>
+      <input type="answC" name="answC">
+    </div>
+    <div>
+      <label for="answD">Answer D:</label>
+      <input type="answD" name="answD">
+    </div>
+  <% if (typeof message != "undefined") { %>
+    <div class="error-message"><%= message %></div>
+  <% } %>
+  <div>
+    <input type="submit" value="ADD">
+  </div>
+</form>

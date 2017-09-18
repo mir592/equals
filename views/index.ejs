@@ -1,2 +1,13 @@
 <h1><%= title %></h1>
 <p>Welcome to <%= title %></p>
+<% if(user) { %>
+  <h2>Hola usuario <%= user.alias %></h2>
+  <form action="/logout" method="POST">
+    <button>Logout</button>
+  </form>
+  <%= console.log("LOGEADO")%>
+<% }else{ %>
+  <a href="/signup">Signup</a>
+  <a href="/login">Login</a>
+  <%= console.log("NO LOGUEADO")%>
+<% } %>

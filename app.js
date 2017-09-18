@@ -11,6 +11,7 @@ const flash = require("connect-flash");
 const MongoStore = require("connect-mongo")(session);
 
 const authRoutes = require('./routes/auth');
+const addRouter = require('./routes/add');
 
 const debug = require('debug')("app:"+path.basename(__filename).split('.')[0]);
 
@@ -29,7 +30,7 @@ app.use(expressLayouts);
 app.use(flash());
 
 app.use((req,res,next) =>{
-  res.locals.title = "Auth example";
+  res.locals.title = "Proyecto 2";
   next();
 });
 
@@ -59,6 +60,7 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', authRoutes);
+app.use('/', addRouter);
 app.get('/', (req,res) => res.render('index',{user:req.user}));
 
 

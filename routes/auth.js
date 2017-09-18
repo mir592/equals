@@ -42,7 +42,7 @@ router.post(PATHS.SIGNUP_PATH, (req, res, next) => {
       password: hashPass
     })
     .save()
-    .then(user => res.redirect('/'))
+    .then(user => res.render('index', {user}))
     .catch(e => res.render("auth/signup", { message: "Something went wrong" }));
 
   });

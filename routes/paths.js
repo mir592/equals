@@ -3,5 +3,5 @@ module.exports = {
   LOGIN_PATH: '/login',
   LOGOUT_PATH: '/logout',
   SIGNUP_PATH: '/signup',
-  USERS_PATH: '/users'
+  ADD_PATH: '/add'
 };
