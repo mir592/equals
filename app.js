@@ -8,7 +8,7 @@ const layouts      = require('express-ejs-layouts');
 const mongoose     = require('mongoose');
 
 
-mongoose.connect('mongodb://localhost/awesome-project');
+mongoose.connect('mongodb://localhost/awesome-project').then(console.log("conectado a BBDD"));
 
 const app = express();
 
@@ -17,7 +17,12 @@ app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
 
 // default value for title local
+<<<<<<< HEAD
 app.locals.title = 'Express - Generate coon IronGenerator';
+=======
+
+app.locals.title = 'Express - Generated con IronGenerator';
+>>>>>>> c18b6346759ccf544bb14b81d3a8cd86bc4c7b57
 
 // uncomment after placing your favicon in /public
 //app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
