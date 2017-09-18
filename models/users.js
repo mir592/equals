@@ -7,7 +7,7 @@ const userSchema = new Schema({
   alias: String,
   email: String,
   password: String,
-  facebookID: String,
+  // facebookID: String,
 });
 
 const User = mongoose.model('User', userSchema);
