@@ -13,6 +13,8 @@ const {dbURL} = require('./config/db');
 const authRoutes = require('./routes/auth');
 const addRouter = require('./routes/add');
 const viewQues = require('./routes/answQuest');
+const LocalStrategy = require("passport-local").Strategy;
+const bcrypt = require("bcrypt");
 
 const debug = require('debug')("app:"+path.basename(__filename).split('.')[0]);
 
@@ -35,6 +37,15 @@ app.use((req,res,next) =>{
   next();
 });
 
+
+// uncomment after placing your favicon in /public
+//app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
+app.use(logger('dev'));
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: false }));
+app.use(cookieParser());
+app.use(express.static(path.join(__dirname, 'public')));
+
 app.use(session({
   secret: "our-passport-local-strategy-app",
   resave: true,
@@ -52,18 +63,13 @@ require('./passport/facebook');
 app.use(passport.initialize());
 app.use(passport.session());
 
-// uncomment after placing your favicon in /public
-//app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
-app.use(logger('dev'));
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: false }));
-app.use(cookieParser());
-app.use(express.static(path.join(__dirname, 'public')));
+
 
 app.use('/', authRoutes);
 app.use('/', addRouter);
 app.use('/', viewQues);
 app.get('/', (req,res) => res.render('index',{user:req.user}));
+
 
 
 // catch 404 and forward to error handler
