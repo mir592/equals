@@ -66,10 +66,10 @@ router.post(PATHS.LOGOUT_PATH,(req,res) =>{
 });
 
 
-// router.get("/auth/facebook", passport.authenticate("facebook"));
-// router.get("/auth/facebook/callback", passport.authenticate("facebook", {
-//   successRedirect: PATH.ROOT_PATH,
-//   failureRedirect: PATH.ROOT_PATH
-// }));
+router.get("/auth/facebook", passport.authenticate("facebook"));
+router.get("/auth/facebook/callback", passport.authenticate("facebook", {
+  successRedirect: PATHS.ROOT_PATH,
+  failureRedirect: PATHS.ROOT_PATH
+}));
 
 module.exports = router;

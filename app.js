@@ -46,7 +46,7 @@ app.use(session({
 
 require('./passport/serializers');
 require('./passport/local');
-// require('./passport/facebook');
+require('./passport/facebook');
 
 app.use(passport.initialize());
 app.use(passport.session());
