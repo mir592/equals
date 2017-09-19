@@ -9,14 +9,16 @@ const session = require("express-session");
 const passport = require("passport");
 const flash = require("connect-flash");
 const MongoStore = require("connect-mongo")(session);
-
+const {dbURL} = require('./config/db');
 const authRoutes = require('./routes/auth');
+const addRouter = require('./routes/add');
+const viewQues = require('./routes/answQuest');
 
 const debug = require('debug')("app:"+path.basename(__filename).split('.')[0]);
 
 const mongoose = require("mongoose");
-mongoose.connect("mongodb://localhost/segundoProyecto",{useMongoClient:true})
-        .then(()=> debug("connected to db!"));
+mongoose.connect(dbURL,{useMongoClient:true})
+        .then(()=> debug(`connected to db! ${dbURL}`));
 
 var app = express();
 
@@ -29,7 +31,7 @@ app.use(expressLayouts);
 app.use(flash());
 
 app.use((req,res,next) =>{
-  res.locals.title = "Auth example";
+  res.locals.title = "Proyecto 2";
   next();
 });
 
@@ -45,7 +47,7 @@ app.use(session({
 
 require('./passport/serializers');
 require('./passport/local');
-// require('./passport/facebook');
+require('./passport/facebook');
 
 app.use(passport.initialize());
 app.use(passport.session());
@@ -59,6 +61,8 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', authRoutes);
+app.use('/', addRouter);
+app.use('/', viewQues);
 app.get('/', (req,res) => res.render('index',{user:req.user}));
 
 

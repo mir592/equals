@@ -1,2 +1,17 @@
 <h1><%= title %></h1>
 <p>Welcome to <%= title %></p>
+<% if(user) { %>
+  <h2>Hola usuario <%= user.alias %></h2>
+  <form action="/logout" method="POST">
+    <a href="/viewQues">Ver preguntas</a>
+  <a href="/add">Añadir preguntas</a>
+    <button>Logout</button>
+  </form>
+  <%= console.log("LOGEADO")%>
+<% }else{ %>
+  <a href="/signup">Signup</a>
+  <a href="/login">Login</a>
+  <a href="/auth/facebook">Login CON FACEBOOK</a>
+
+  <%= console.log("NO LOGUEADO")%>
+<% } %>
