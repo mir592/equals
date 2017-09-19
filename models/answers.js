@@ -7,5 +7,5 @@ const answerSchema = new Schema({
   answer: String,
 });
 
-const Question = mongoose.model('Question', questionSchema);
-module.exports = Question;
+const Answer = mongoose.model('Answer', answerSchema);
+module.exports = Answer;

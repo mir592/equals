@@ -12,6 +12,7 @@ const MongoStore = require("connect-mongo")(session);
 const {dbURL} = require('./config/db');
 const authRoutes = require('./routes/auth');
 const addRouter = require('./routes/add');
+const viewQues = require('./routes/answQuest');
 
 const debug = require('debug')("app:"+path.basename(__filename).split('.')[0]);
 
@@ -61,6 +62,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', authRoutes);
 app.use('/', addRouter);
+app.use('/', viewQues);
 app.get('/', (req,res) => res.render('index',{user:req.user}));
 
 

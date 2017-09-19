@@ -3,5 +3,6 @@ module.exports = {
   LOGIN_PATH: '/login',
   LOGOUT_PATH: '/logout',
   SIGNUP_PATH: '/signup',
-  ADD_PATH: '/add'
+  ADD_PATH: '/add',
+VIEW_QUESTION: '/viewQues'
 };
