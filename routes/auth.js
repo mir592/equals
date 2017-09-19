@@ -7,7 +7,9 @@ const passport = require('passport');
 const debug = require('debug')("app:auth:local");
 const session = require("express-session");
 const MongoStore = require("connect-mongo")(session);
-const ensureLogin = require("connect-ensure-login");
+const multer  = require('multer');
+
+var upload = multer({ dest: './public/uploads/' });
 const router = require('express').Router();
 const flash = require("connect-flash");
 
@@ -15,7 +17,7 @@ router.get('/signup', (req, res, next) => {
   res.render("auth/signup");
 });
 
-router.post('/signup', (req, res, next) => {
+router.post('/signup', upload.single('photo'), (req, res, next) => {
   const name = req.body.name;
   const alias = req.body.alias;
   const email = req.body.email;
@@ -41,7 +43,8 @@ router.post('/signup', (req, res, next) => {
       name,
       alias,
       email,
-      password: hashPass
+      password: hashPass,
+      pick: `/upload/${req.file.filename}`,
     })
     .save()
     .then(user => res.render('index', {user}))

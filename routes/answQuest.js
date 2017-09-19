@@ -12,6 +12,8 @@ router.get('/viewQues', (req, res, next) => {
       return next(err);
     }
 
+//Aqui filtro
+
     res.render("viewQues", {
       question: question
     });
