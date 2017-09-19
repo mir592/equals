@@ -3,10 +3,11 @@ const Schema = mongoose.Schema;
 
 const userSchema = new Schema({
   name: String,
-  pick: String,
   alias: String,
   email: String,
   password: String,
+  pick: String,
+  //answers: //ejercicio marc
   facebookID: String,
 });
 

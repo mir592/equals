@@ -8,14 +8,18 @@ const debug = require('debug')("app:auth:local");
 const PATHS = require('./paths');
 const session = require("express-session");
 const MongoStore = require("connect-mongo")(session);
+const multer  = require('multer');
 
+var upload = multer({ dest: './public/uploads/' });
 const router = require('express').Router();
 
 router.get(PATHS.SIGNUP_PATH, (req, res, next) => {
   res.render("auth/signup");
 });
 
-router.post(PATHS.SIGNUP_PATH, (req, res, next) => {
+
+router.post(PATHS.SIGNUP_PATH, upload.single('photo'), (req, res, next) => {
+console.log(req.file);
   const name = req.body.name;
   const alias = req.body.alias;
   const email = req.body.email;
@@ -41,7 +45,8 @@ router.post(PATHS.SIGNUP_PATH, (req, res, next) => {
       name,
       alias,
       email,
-      password: hashPass
+      password: hashPass,
+      pick: `/upload/${req.file.filename}`,
     })
     .save()
     .then(user => res.render('index', {user}))
