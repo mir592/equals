@@ -3,6 +3,7 @@
 <% if(user) { %>
   <h2>Hola usuario <%= user.alias %></h2>
   <form action="/logout" method="POST">
+  <a href="/add">Añadir preguntas</a>
     <button>Logout</button>
   </form>
   <%= console.log("LOGEADO")%>
@@ -10,5 +11,6 @@
   <a href="/signup">Signup</a>
   <a href="/login">Login</a>
   <a href="/auth/facebook">Login CON FACEBOOK</a>
+
   <%= console.log("NO LOGUEADO")%>
 <% } %>
