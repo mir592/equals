@@ -36,7 +36,7 @@ const newQuestion = new Question({
     answD
   })
   .save()
-  .then(res.render('added'))
+  .then(question => res.render('added', {question}))
   .catch(e => res.render("add", {
     message: "Something went wrong"
   }));
