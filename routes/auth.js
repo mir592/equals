@@ -14,8 +14,9 @@ var upload = multer({ dest: './public/uploads/' });
 const router = require('express').Router();
 
 router.get(PATHS.SIGNUP_PATH, (req, res, next) => {
-  res.render("auth/signup");
+
 });
+
 
 
 router.post(PATHS.SIGNUP_PATH, upload.single('photo'), (req, res, next) => {
