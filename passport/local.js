@@ -17,7 +17,7 @@ passport.use(new LocalStrategy((alias, password, next) => {
       return next(null, false, { message: "Incorrect Alias" });
     }
     if (!bcrypt.compareSync(password, user.password)) {
-      debug('Incorrect Password');
+      debug('Incorrect Passworddddd');
       return next(null, false, { message: "Incorrect password" });
     }
     debug('Logged in user');

@@ -9,15 +9,15 @@ const session = require("express-session");
 const passport = require("passport");
 const flash = require("connect-flash");
 const MongoStore = require("connect-mongo")(session);
-
+const {dbURL} = require('./config/db');
 const authRoutes = require('./routes/auth');
 const addRouter = require('./routes/add');
 
 const debug = require('debug')("app:"+path.basename(__filename).split('.')[0]);
 
 const mongoose = require("mongoose");
-mongoose.connect("mongodb://localhost/segundoProyecto",{useMongoClient:true})
-        .then(()=> debug("connected to db!"));
+mongoose.connect(dbURL,{useMongoClient:true})
+        .then(()=> debug(`connected to db! ${dbURL}`));
 
 var app = express();
 
