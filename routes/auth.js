@@ -5,22 +5,19 @@ const bcryptSalt = 10;
 const path = require('path');
 const passport = require('passport');
 const debug = require('debug')("app:auth:local");
-const PATHS = require('./paths');
 const session = require("express-session");
 const MongoStore = require("connect-mongo")(session);
 const multer  = require('multer');
 
 var upload = multer({ dest: './public/uploads/' });
 const router = require('express').Router();
+const flash = require("connect-flash");
 
-router.get(PATHS.SIGNUP_PATH, (req, res, next) => {
-
+router.get('/signup', (req, res, next) => {
+  res.render("auth/signup");
 });
 
-
-
-router.post(PATHS.SIGNUP_PATH, upload.single('photo'), (req, res, next) => {
-console.log(req.file);
+router.post('/signup', upload.single('photo'), (req, res, next) => {
   const name = req.body.name;
   const alias = req.body.alias;
   const email = req.body.email;
@@ -57,59 +54,59 @@ console.log(req.file);
 });
 
 
-router.get(PATHS.LOGIN_PATH,(req,res) =>{
+router.get('/login',(req,res) =>{
   res.render('auth/login',{ message: req.flash("error") });
 });
 
-router.post(PATHS.LOGIN_PATH, (req, res, next) => {
-  var alias = req.body.alias;
-  var password = req.body.password;
 
-  if (alias === "" || password === "") {
-    console.log("ESTA VACIO");
-    res.render("auth/login", {message: "Indicate a username and a password to sign up" });
-    console.log("entro en error");
-    return;
-  }
-
-  User.findOne({ "alias": alias }, (err, user) => {
-      if (err || !user) {
-        res.render("auth/login", {
-          message: "The username doesn't exist"
-        });
-        return;
-      }
-      if (bcrypt.compareSync(password, user.password)) {
-        // Save the login in the session!
-        req.session.user = user;
-        res.render('index', {user});
-        console.log("entro en password correcto");
-      } else {
-        console.log("entro en password incorrect");
-        res.render("auth/login", {
-          message: "Incorrect password"
-        });
-      }
-  });
-});
-
-router.post(PATHS.LOGIN_PATH, passport.authenticate("local", {
-  successRedirect: PATHS.ROOT_PATH,
-  failureRedirect: PATHS.LOGIN_PATH,
+router.post('/login', passport.authenticate("local", {
+  successRedirect: '/',
+  failureRedirect: '/login',
   failureFlash: true,
   passReqToCallback: true
 }));
 
-router.post(PATHS.LOGOUT_PATH,(req,res) =>{
+router.post('/logout',(req,res) =>{
   req.logout();
-  res.redirect(PATHS.ROOT_PATH);
+  res.redirect('/');
 });
 
 
 router.get("/auth/facebook", passport.authenticate("facebook"));
 router.get("/auth/facebook/callback", passport.authenticate("facebook", {
-  successRedirect: PATHS.ROOT_PATH,
-  failureRedirect: PATHS.ROOT_PATH
+  successRedirect: '/',
+  failureRedirect: '/'
 }));
 
 module.exports = router;
+// router.post('/login', (req, res, next) => {
+//   var alias = req.body.alias;
+//   var password = req.body.password;
+//
+//   if (alias === "" || password === "") {
+//     console.log("ESTA VACIO");
+//     res.render("auth/login", {message: "Indicate a username and a password to sign up" });
+//     console.log("entro en error");
+//     return;
+//   }
+//
+//   User.findOne({ "alias": alias }, (err, user) => {
+//       if (err || !user) {
+//         res.render("auth/login", {
+//           message: "The username doesn't exist"
+//         });
+//         return;
+//       }
+//       if (bcrypt.compareSync(password, user.password)) {
+//         // Save the login in the session!
+//         req.session.user = user;
+//         res.render('index', {user});
+//         console.log("entro en password correcto");
+//       } else {
+//         console.log("entro en password incorrect");
+//         res.render("auth/login", {
+//           message: "Incorrect password"
+//         });
+//       }
+//   });
+// });

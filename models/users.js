@@ -9,6 +9,8 @@ const userSchema = new Schema({
   pick: String,
   //answers: //ejercicio marc
   facebookID: String,
+}, {
+  timestamps: { createdAt: "created_at", updatedAt: "updated_at" }
 });
 
 const User = mongoose.model('User', userSchema);

@@ -4,14 +4,13 @@ const Question = require('../models/questions');
 const path = require('path');
 const passport = require('passport');
 const debug = require('debug')("app:auth:local");
-const PATHS = require('./paths');
 
 const router = require('express').Router();
 
-router.get(PATHS.ADD_PATH, (req, res, next) => {
+router.get('/add', (req, res, next) => {
   res.render("add");
 });
-router.post(PATHS.ADD_PATH, (req, res, next) => {
+router.post('/add', (req, res, next) => {
 const question = req.body.question;
 const answA = req.body.answA;
 const answB = req.body.answB;
