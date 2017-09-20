@@ -1,13 +1,11 @@
 const passport = require("passport");
-const flash = require("connect-flash");
-const bcrypt = require('bcrypt');
-const User = require('../models/users');
-const dotenv = require ("dotenv").load();
 const LocalStrategy = require("passport-local").Strategy;
 const FbStrategy = require('passport-facebook').Strategy;
-const session = require('express-session');
-const multer = require('multer');
-const upload = multer({dest: './public/uploads/' });
+const User = require('../models/users');
+const bcrypt = require('bcrypt');
+const dotenv = require ("dotenv").load();
+
+
 
 module.exports = function() {
   passport.serializeUser((user, cb) => {
@@ -17,28 +15,22 @@ module.exports = function() {
   passport.deserializeUser((id, cb) => {
 
     User.findById(id, (err, user) => {
-      if (err) {
-        return cb(err);
-      }
+      if (err) { return cb(err); }
       cb(null, user);
     });
   });
 
-  passport.use('local-signup', new LocalStrategy({
-      passReqToCallback: true
-    },
+  passport.use('local-signup', new LocalStrategy(
+    { passReqToCallback: true },
     (req, name, alias, email, password, next) => {
+      console.log("entrando middleware");
       process.nextTick(() => {
         User.findOne({
           'alias': alias
-        }, (err, user) => {
-          if (err) {
-            return next(err);
-          }
-
-          if (user) {
-            return next(null, false);
-          } else {
+        }, (err, user) =>
+        { if (err) { return next(err); }
+          if (user) { return next(null, false); }
+          else {
             const {
               name,
               alias,
@@ -54,18 +46,21 @@ module.exports = function() {
               pick: `/upload/${req.file.filename}`,
             });
 
-            newUser.save((err) => {
-              if (err) {
-                next(err);
-              }
-              return next(null, newUser);
-            });
+            newUser.save()
+            .then(result => {
+              console.log("all done");
+                return next(null, newUser);
+          })
+            .catch(err => console.log(err));
+
+
           }
         });
       });
     }));
 
   passport.use('local-login', new LocalStrategy((alias, password, next) => {
+console.log("entrando middleware");
     User.findOne({
       alias
     }, (err, user) => {
