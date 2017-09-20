@@ -6,7 +6,7 @@ const debug = require('debug')('app:auth:local');
 
 module.exports = {
   signupGet: (req, res, next) => {
-    res.render('auth/signup');
+      res.render('auth/signup');
   },
   signupPost: ((req, res, next) => {
   const name = req.body.name;
@@ -38,7 +38,7 @@ module.exports = {
       pick: `/upload/${req.file.filename}`,
     })
     .save()
-    .then(user => res.render('index', {user}))
+    .then(user => res.render('index', {user : user}))
     .catch(e => res.render("auth/signup", { message: "Something went wrong" }));
 
   });

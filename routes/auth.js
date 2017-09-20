@@ -3,7 +3,7 @@ const express = require("express");
 const router = express.Router();
 const AuthController = require('../controllers/AuthController');
 const multer = require('multer');
-const upload = multer({dest: './public/uploads/' });
+const upload = multer({dest: './public/upload/' });
 
 router.get("/signup", AuthController.signupGet);
 router.post('/signup', upload.single('photo'), AuthController.signupPost);
