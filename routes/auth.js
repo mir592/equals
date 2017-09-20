@@ -7,9 +7,10 @@ const passport = require('passport');
 const debug = require('debug')("app:auth:local");
 const session = require("express-session");
 const MongoStore = require("connect-mongo")(session);
-const multer  = require('multer');
 
-var upload = multer({ dest: './public/uploads/' });
+const multer  = require('multer');
+const upload = multer({ dest: './public/uploads/' });
+
 const router = require('express').Router();
 const flash = require("connect-flash");
 
