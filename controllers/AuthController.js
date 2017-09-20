@@ -35,7 +35,7 @@ module.exports = {
       alias,
       email,
       password: hashPass,
-    //  pick: `/upload/${req.file.filename}`,
+      pick: `/upload/${req.file.filename}`,
     })
     .save()
     .then(user => res.render('index', {user}))

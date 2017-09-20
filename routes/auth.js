@@ -6,7 +6,7 @@ const multer = require('multer');
 const upload = multer({dest: './public/uploads/' });
 
 router.get("/signup", AuthController.signupGet);
-router.post('/signup', AuthController.signupPost);
+router.post('/signup', upload.single('photo'), AuthController.signupPost);
 
 router.get('/login', AuthController.loginGet);
 router.post('/login', AuthController.loginPost);
