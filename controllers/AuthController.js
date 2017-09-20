@@ -38,7 +38,7 @@ module.exports = {
       pick: `/upload/${req.file.filename}`,
     })
     .save()
-    .then(user => res.render('index', {user}))
+    .then(user => res.render('secret', {user}))
     .catch(e => res.render("auth/signup", { message: "Something went wrong" }));
 
   });
@@ -48,7 +48,7 @@ module.exports = {
     res.render('auth/login');
   },
   loginPost: passport.authenticate('local-login', {
-    successRedirect: '/',
+    successRedirect: '/secret',
     failureRedirect: '/login'
   }),
 
@@ -59,7 +59,7 @@ module.exports = {
 
   facebookGet: passport.authenticate("facebook"),
   facebookCallbackGet: passport.authenticate("facebook", {
-    successRedirect: "/",
+    successRedirect: "/secret",
     failureRedirect: "/"
   })
 };
