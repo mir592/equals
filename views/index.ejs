@@ -2,6 +2,7 @@
 <p>Welcome to <%= title %></p>
 <% if(user) { %>
   <h2>Hola usuario <%= user.alias %></h2>
+  <h2><%= user.pick %></h2>
   <form action="/logout" method="POST">
     <a href="/viewQues">Ver preguntas</a>
   <a href="/add">Añadir preguntas</a>
