@@ -59,8 +59,10 @@ module.exports = function() {
       });
     }));
 
-  passport.use('local-login', new LocalStrategy((alias, password, next) => {
-console.log("entrando middleware");
+  passport.use('local-login', new LocalStrategy({
+    usernameField: 'alias',
+    passwordField: 'password'
+  }, (alias, password, next) => {
     User.findOne({
       alias
     }, (err, user) => {
