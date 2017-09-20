@@ -7,6 +7,8 @@ const questionSchema = new Schema({
   answB: String,
   answC: String,
   answD: String,
+},{
+  timestamps: { createdAt: "created_at", updatedAt: "updated_at" }
 });
 
 const Question = mongoose.model('Question', questionSchema);
