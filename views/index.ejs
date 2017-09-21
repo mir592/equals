@@ -3,16 +3,17 @@
 <% if(user) { %>
   <h2>Hola usuario <%= user.alias %></h2>
   <div><img src="<%= user.pick %>" height="200px" /></div>
-  <form action="/logout" method="POST">
+  <form action="/" method="POST">
     <a href="/viewQues">Ver preguntas</a>
-  <a href="/add">Añadir preguntas</a>
-    <button>Logout</button>
+    <a href="/add">Añadir preguntas</a>
+    <a href="/logout">LOGOUT</a>
   </form>
+
   <%= console.log("LOGEADO")%>
 <% }else{ %>
   <a href="/signup">Signup</a>
   <a href="/login">Login</a>
   <a href="/auth/facebook">Login CON FACEBOOK</a>
-
-  <%= console.log("NO LOGUEADO")%>
+  <h1> NO USER </h1>
+  <%= console.log("NO LOGUEADO", user)%>
 <% } %>

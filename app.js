@@ -9,6 +9,11 @@ const authController = require('./routes/auth');
 const addController = require('./routes/add');
 const viewQues = require('./routes/answQuest');
 
+app.use((req, res, next) => {
+  res.locals.user = req.user;
+  next();
+});
+
 app.use('/', index);
 app.use('/', authController);
 app.use('/', addController);
