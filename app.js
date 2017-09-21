@@ -6,13 +6,13 @@ require('./config/expressController')(app);
 
 const index = require('./routes/index');
 const authController = require('./routes/auth');
-const addController = require('./routes/add');
-const viewQues = require('./routes/answQuest');
+const newController = require('./routes/new');
+const questionsRoutes = require('./routes/questionsList');
 
 app.use('/', index);
 app.use('/', authController);
-app.use('/', addController);
-app.use('/', viewQues);
+app.use('/', newController);
+app.use('/', questionsRoutes);
 
 require('./config/error-handler')(app);
 

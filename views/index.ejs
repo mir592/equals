@@ -4,8 +4,8 @@
   <h2>Hola usuario <%= user.alias %></h2>
   <div><img src="<%= user.pick %>" height="200px" /></div>
   <form action="/logout" method="POST">
-    <a href="/viewQues">Ver preguntas</a>
-  <a href="/add">Añadir preguntas</a>
+    <a href="/questionsList">Ver preguntas</a>
+  <a href="/new">Añadir preguntas</a>
     <button>Logout</button>
   </form>
   <%= console.log("LOGEADO")%>

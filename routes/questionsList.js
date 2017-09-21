@@ -6,18 +6,19 @@ const passport = require('passport');
 const debug = require('debug')("app:auth:local");
 const router = require('express').Router();
 
-router.get('/viewQues', (req, res, next) => {
-  Question.find({}, (err, question) => {
+router.get('/questionsList', (req, res, next) => {
+  Question.find({}, (err, questions) => {
     if (err) {
       return next(err);
     }
 
 //Aqui filtro
 
-    res.render("viewQues", {
-      question: question
+    res.render("questions/questionsList", {
+      questions: questions
     });
   });
 });
+
 
 module.exports = router;
