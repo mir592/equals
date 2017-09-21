@@ -38,7 +38,7 @@ module.exports = {
       pick: `/upload/${req.file.filename}`,
     })
     .save()
-    .then(user => res.render('secret', {user}))
+    .then(user => res.render('index', {user}))
     .catch(e => res.render("auth/signup", { message: "Something went wrong" }));
 
   });

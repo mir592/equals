@@ -24,7 +24,7 @@ module.exports = function(app) {
   app.use(session({
     secret: 'basicsecret',
     cookie: { maxAge: 60000 },
-    resave: false, //no sabemos si es TRUE o FALSE
+    resave: true, //no sabemos si es TRUE o FALSE
     saveUninitialized: true,
     store: new MongoStore( {
       mongooseConnection: mongoose.connection,
