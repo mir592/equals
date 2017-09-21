@@ -9,6 +9,11 @@ const authController = require('./routes/auth');
 const newController = require('./routes/new');
 const questionsRoutes = require('./routes/questionsList');
 
+app.use((req, res, next) => {
+  res.locals.user = req.user;
+  next();
+});
+
 app.use('/', index);
 app.use('/', authController);
 app.use('/', newController);
