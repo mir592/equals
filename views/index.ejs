@@ -5,7 +5,9 @@
   <div><img src="<%= user.pick %>" height="200px" /></div>
   <form action="/logout" method="POST">
     <a href="/questionsList">Ver preguntas</a>
-  <a href="/new">Añadir preguntas</a>
+    <a href="/new">Añadir preguntas</a>
+    <!-- Añadir enlace para editar usuario -->
+    <a href="/user/<%= user._id %>/edit/">Edit User</a>
     <button>Logout</button>
   </form>
   <%= console.log("LOGEADO")%>
