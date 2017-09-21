@@ -3,10 +3,10 @@ const Schema = mongoose.Schema;
 
 const answerSchema = new Schema({
   questionID: [Schema.Types.ObjectId],
-  answerA: Boolean,
-  answerB: Boolean,
-  answerC: Boolean,
-  answerD: Boolean,
+  answerA: {type:Boolean, default:false},
+  answerB: {type:Boolean, default:false},
+  answerC: {type:Boolean, default:false},
+  answerD: {type:Boolean, default:false},
   userID: [Schema.Types.ObjectId]
 },{
   timestamps: { createdAt: "created_at", updatedAt: "updated_at" }
