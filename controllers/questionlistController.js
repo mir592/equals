@@ -4,29 +4,19 @@ const Question = require('../models/questions');
 module.exports = {
   listGet: (req, res, next) => {
     Question.find({}, (err, questions) => {
+      //console.log(questions);
       if (err) {
         return next(err);
       }
+      let random = parseInt(Math.random()*questions.length);
+      console.log(random);
+      console.log(questions.length);
 
-  //Aqui filtro
-
+      //Aqui filtro --> Guardar como un objeto
+      
       res.render("questions/questionsList", {
-        questions: questions
+        questions: questions[random]
       });
     });
   }
 };
-//
-// router.get('/questionsList', (req, res, next) => {
-//   Question.find({}, (err, questions) => {
-//     if (err) {
-//       return next(err);
-//     }
-//
-// //Aqui filtro
-//
-//     res.render("questions/questionsList", {
-//       questions: questions
-//     });
-//   });
-// });
