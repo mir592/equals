@@ -48,7 +48,7 @@ module.exports = {
     res.render('auth/login');
   },
   loginPost: passport.authenticate('local-login', {
-    successRedirect: '/',
+    successRedirect: '/secret',
     failureRedirect: '/login'
   }),
 
@@ -59,7 +59,7 @@ module.exports = {
 
   facebookGet: passport.authenticate("facebook"),
   facebookCallbackGet: passport.authenticate("facebook", {
-    successRedirect: "/",
+    successRedirect: "/secret",
     failureRedirect: "/"
   })
 };
