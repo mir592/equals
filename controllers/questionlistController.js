@@ -16,17 +16,3 @@ module.exports = {
     });
   }
 };
-//
-// router.get('/questionsList', (req, res, next) => {
-//   Question.find({}, (err, questions) => {
-//     if (err) {
-//       return next(err);
-//     }
-//
-// //Aqui filtro
-//
-//     res.render("questions/questionsList", {
-//       questions: questions
-//     });
-//   });
-// });

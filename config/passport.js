@@ -20,44 +20,6 @@ module.exports = function() {
     });
   });
 
-  // passport.use('local-signup', new LocalStrategy(
-  //   { passReqToCallback: true },
-  //   (req, name, alias, email, password, next) => {
-  //     console.log("entrando middleware");
-  //     process.nextTick(() => {
-  //       User.findOne({
-  //         'alias': alias
-  //       }, (err, user) =>
-  //       { if (err) { return next(err); }
-  //         if (user) { return next(null, false); }
-  //         else {
-  //           const {
-  //             name,
-  //             alias,
-  //             email,
-  //             password
-  //           } = req.body;
-  //           const hashPass = bcrypt.hashSync(password, bcrypt.genSaltSync(8), null);
-  //           const newUser = new User({
-  //             name,
-  //             alias,
-  //             email,
-  //             password: hashPass,
-  //             pick: `/upload/${req.file.filename}`,
-  //           });
-  //
-  //           newUser.save()
-  //           .then(result => {
-  //             console.log("all done");
-  //               return next(null, newUser);
-  //         })
-  //           .catch(err => console.log(err));
-  //
-  //
-  //         }
-  //       });
-  //     });
-  //   }));
 
   passport.use('local-login', new LocalStrategy({
     usernameField: 'alias',
