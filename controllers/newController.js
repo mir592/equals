@@ -23,7 +23,7 @@ module.exports = {
 
     const newQuestion = new Question(questionInfo);
       newQuestion.save()
-      .then(question => res.redirect('/'))
+      .then(question => res.redirect('/secret'))
       .catch(e => res.render("questions/new", {
         message: "Something went wrong"
       }));
