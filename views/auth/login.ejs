@@ -1,16 +1,15 @@
-<form action="/login" method="POST">
-  <div>
-    <label for="alias">Alias</label>
-    <input type="text" name="alias">
-  </div>
-  <div>
-    <label for="password">Password:</label>
-    <input type="password" name="password">
+<img class="logo2" src="/image/e.png" alt="">
+<h2 id="login">Login</h2>
+<form id="form-container" action="/login" method="POST">
+    <input class="campos"type="text" name="alias" placeholder="ALIAS">
+    <input class="campos" type="password" name="password" placeholder="PASSWORD">
   </div>
   <% if (typeof message != "undefined") { %>
     <div class="error-message"><%= message %></div>
   <% } %>
   <div>
-    <input type="submit" value="Log In">
+  <input class="bottom3" type="submit" value="Login">
   </div>
+  <a class="bottom4" href="/auth/facebook">Login CON FACEBOOK</a>
+
 </form>

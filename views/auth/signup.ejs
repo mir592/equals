@@ -1,29 +1,21 @@
-<!-- views/auth/signup.ejs -->
-<h2>Signup</h2>
 
+
+<img class="logo" src="/image/e.png" alt="">
+<h2 id="signup">Signup</h2>
 <form action="/signup" method="POST" id="form-container" enctype="multipart/form-data">
-  <label for="name">Name</label>
-  <input id="name" type="text" name="name" placeholder="JonSnow">
-  <br><br>
-  <label for="alias">Alias</label>
-  <input id="alias" type="text" name="alias" placeholder="JS">
-  <br><br>
-  <label for="email">Email</label>
-  <input id="email" type="email" name="email" placeholder="Your email">
-  <br><br>
-  <label for="password">Password</label>
-  <input id="password" type="password" name="password" placeholder="Your password">
-  <br><br>
-    <label for="pick">pick</label>
-    <input id="pick" type="file" name="pick">
+  <input class="campos" id="name" type="text" name="name" placeholder="NAME">
+  <input class="campos" id="alias" type="text" name="alias" placeholder="ALIAS">
+  <input class="campos" id="email" type="email" name="email" placeholder="EMAIL">
+  <input class="campos" id="password" type="password" name="password" placeholder="PASSWORD">
+  <input class="bottom2" id="pick" type="file" name="pick">
   <% if (typeof message !== "undefined") { %>
     <div class="error-message"><%= message %></div>
   <% } %>
   <br><br>
-  <input type="submit" value="create account, bro">
-
+  <input class="bottom1" type="submit" value="Create account">
   <p class="account-message">
     Do you already have an account?
-    <a href="/login">Login</a>
+    <br>
+    <a class="login" href="/login">Login</a>
   </p>
 </form>
