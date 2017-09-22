@@ -1,6 +1,9 @@
-
-<h1><%= questions.question %></h1>
-<a href="" id= 'resA' class='answ'><%= questions.answA %></a> <br>
-<a href="" id= 'resB' class='answ'><%= questions.answB %></a> <br>
-<a href="" id= 'resC' class='answ'><%= questions.answC %></a> <br>
-<a href="" id= 'resD' class='answ'><%= questions.answD %></a> <br>
+<article class="container">
+  <header><h1><%= question.question %></h1></header>
+  <div>
+    <% question.answers.forEach( (answer, index) =>{ %>
+    <input type="radio" name="answer" value="<%= index %>"><%= answer %><br>
+    <% }) %>
+  </div>
+  <button id="sendAnswer">Envía tu respuesta</button>
+</article>

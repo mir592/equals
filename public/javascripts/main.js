@@ -1,10 +1,16 @@
 $(function() {
+  $('#sendAnswer').on('click', function(e){
+    e.preventDefault();
+    var result = $('input:checked').val();
+    $.post('/questionList', {result}).then(response =>{
 
-  $.ajax({
-    type: "POST",
-    url: url,
-    data: data,
-    dataType: 'json'
+      // rescatas la respuesta
+      // borras la anterior
+      // append la nueva
+
+      console.log(response);
+
+
+    });
   });
-
 });

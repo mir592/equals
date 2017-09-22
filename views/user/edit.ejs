@@ -1,0 +1,16 @@
+<form action="/user/<%= user._id %>" method="POST">
+
+  <label for="name">Name</label>
+  <input type="text" id="name" name="name" value="<%= user.name %>">
+
+  <label for="alias">Alias</label>
+  <input type="text" name="alias" id="alias" value="<%= user.alias %>">
+
+  <label for="email">email</label>
+  <input type="email" name="email" id="email" value="<%= user.email %>">
+
+  <label for="password">password</label>
+  <input type="password" name="password" id="password" value="<%= user.password %>">
+
+  <button type="submit">Update User</button>
+</form>

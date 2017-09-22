@@ -20,44 +20,6 @@ module.exports = function() {
     });
   });
 
-  // passport.use('local-signup', new LocalStrategy(
-  //   { passReqToCallback: true },
-  //   (req, name, alias, email, password, next) => {
-  //     console.log("entrando middleware");
-  //     process.nextTick(() => {
-  //       User.findOne({
-  //         'alias': alias
-  //       }, (err, user) =>
-  //       { if (err) { return next(err); }
-  //         if (user) { return next(null, false); }
-  //         else {
-  //           const {
-  //             name,
-  //             alias,
-  //             email,
-  //             password
-  //           } = req.body;
-  //           const hashPass = bcrypt.hashSync(password, bcrypt.genSaltSync(8), null);
-  //           const newUser = new User({
-  //             name,
-  //             alias,
-  //             email,
-  //             password: hashPass,
-  //             pick: `/upload/${req.file.filename}`,
-  //           });
-  //
-  //           newUser.save()
-  //           .then(result => {
-  //             console.log("all done");
-  //               return next(null, newUser);
-  //         })
-  //           .catch(err => console.log(err));
-  //
-  //
-  //         }
-  //       });
-  //     });
-  //   }));
 
   passport.use('local-login', new LocalStrategy({
     usernameField: 'alias',
@@ -83,30 +45,29 @@ module.exports = function() {
     });
   }));
 };
+
 passport.use(new FbStrategy({
-  clientID: '1929801070619434',
-  clientSecret: '5e2c563ea7420d40436a23853e3c59b2',
+  clientID: '693354650864885',
+  clientSecret: '46269762ce4e3895a7c17dd47dcc53db',
   callbackURL: "/auth/facebook/callback"
-}, (accessToken, refreshToken, profile, next) => {
-  console.log(profile);
+}, (accessToken, refreshToken, profile, done) => {
   User.findOne({ facebookID: profile.id }, (err, user) => {
     if (err) {
-      return next(err);
+      return done(err);
     }
     if (user) {
-      return next(null, user);
+      return done(null, user);
     }
 
     const newUser = new User({
-      facebookID: profile.id,
-      alias: profile.displayName
+      facebookID: profile.id
     });
 
     newUser.save((err) => {
       if (err) {
-        return next(err);
+        return done(err);
       }
-      next(null, newUser);
+      done(null, newUser);
     });
   });
 
