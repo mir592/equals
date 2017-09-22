@@ -1,28 +1,32 @@
-<form action="/new" method="POST">
-  <div>
-    <label for="question">Añade una pregunta: </label>
-    <input type="question" name="question">
+<img class="logo" src="/image/e.png" alt="">
+<h2 id="signup">Añadir pregunta</h2>
+<form id="form-container4" action="/new" method="POST">
+  <div class="question">
+    <label class="campos2" for="question">Añade una pregunta: </label>
+    <input  class="questioninput" type="question" name="question">
   </div>
-  <div>
-    <label for="answA">Answer A:</label>
-    <input type="answA" name="answA">
+  <div class="label2">
+    <label class="labelasnw"  for="answA">Añadir repuesta A</label>
+    <input class="answerinput"  type="answA" name="answA">
   </div>
-  <div>
-    <label for="answB">Answer B:</label>
-    <input type="answB" name="answB">
+<div class="label2">
+    <label class="labelasnw"  for="answB">Añadir repuesta B</label>
+    <input class="answerinput"  type="answB" name="answB">
   </div>
-  <div>
-      <label for="answC">Answer C:</label>
-      <input type="answC" name="answC">
+
+<div class="label2">
+      <label class="labelasnw"  for="answC">Añadir repuesta C</label>
+      <input class="answerinput"  type="answC" name="answC">
     </div>
-    <div>
-      <label for="answD">Answer D:</label>
-      <input type="answD" name="answD">
+
+<div class="label2">
+      <label class="labelasnw" for="answD">Añadir repuesta D</label>
+      <input class="answerinput"  type="answD" name="answD">
     </div>
   <% if (typeof message != "undefined") { %>
     <div class="error-message"><%= message %></div>
   <% } %>
   <div>
-    <input type="submit" value="NEW">
+    <input id="new" type="submit" value="NEW">
   </div>
 </form>

@@ -1,19 +1,9 @@
-<div class="block">
-<div class="blockquestion">
-  <h1 class="question"><%= questions.question %></h1>
-</div>
-<div class="blockanswer">
-  <a class="answer" href="" id='resA'>
-    <%= questions.answA %>
-  </a> <br>
-  <a class="answer" href="" id='resB'>
-    <%= questions.answB %>
-  </a> <br>
-  <a class="answer" href="" id='resC'>
-    <%= questions.answC %>
-  </a> <br>
-  <a class="answer" href="" id='resD'>
-    <%= questions.answD %>
-  </a> <br>
-</div>
-<div>
+<article class="container">
+  <header><h1><%= question.question %></h1></header>
+  <div>
+    <% question.answers.forEach( (answer, index) =>{ %>
+    <input type="radio" name="answer" value="<%= index %>"><%= answer %><br>
+    <% }) %>
+  </div>
+  <button id="sendAnswer">Envía tu respuesta</button>
+</article>

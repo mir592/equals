@@ -5,20 +5,21 @@ module.exports = {
     res.render('questions/new');
   },
   newPost: (req, res, next) => {
-    const questionInfo = {
-      question: req.body.question,
-      answA: req.body.answA,
-      answB: req.body.answB,
-      answC: req.body.answC,
-      answD: req.body.answD
-    };
+    // const questionInfo = {
+    //   question: req.body.question,
+    //   answA: req.body.answA,
+    //   answB: req.body.answB,
+    //   answC: req.body.answC,
+    //   answD: req.body.answD
+    // };
 
-    // if (question === "" || answA === "" || answB === "" || answC === "" || answD === "") {
-    //   res.render("questions/new", {
-    //     message: "Indicate question and answers"
-    //   });
-    //   return;
-    // }
+    const questionInfo = {
+      question : req.body.question,
+      answers : [ req.body.answA,
+                  req.body.answB,
+                  req.body.answC,
+                  req.body.answD]
+    };
 
     const newQuestion = new Question(questionInfo);
       newQuestion.save()

@@ -5,6 +5,19 @@ body {
   color: #3D3D3D
 }
 
+a {
+  text-decoration: none;
+  color: white;
+}
+
+.menu {
+text-align: center;
+background-color: #6A7481;
+margin: 10px 1px 10px 10px;
+padding: 10px;
+box-shadow: 0px 0px 10px  #1B3351;
+
+}
 
 .logo{
   height: 300px;
@@ -17,6 +30,23 @@ body {
   height: 300px;
   margin-left: 430px;
 }
+
+
+.logo3{
+  height: 250px;
+  margin-left: 460px;
+  margin-top: -100px;
+}
+
+#cancel{
+margin-left: 130px;
+}
+
+.logo4{
+  height: 600px;
+  margin-left: 260px;
+}
+
 
 
 #signup{
@@ -39,6 +69,38 @@ body {
 }
 
 
+#form-container2 {
+  padding: 10px 30px 30px 30px;
+  margin-left: 400px;
+  margin-right: 400px;
+  border-radius: 10px;
+  box-shadow: 1px 1px 25px #3D3D3D;
+  background-color: #E38451;
+}
+
+
+#form-container3 {
+  padding: 30px 30px 30px 30px;
+  margin-top: 43px;
+  border-radius: 10px;
+  box-shadow: 1px 1px 10px #3D3D3D;
+  background-color: #3F4F64;
+  color: white;
+  margin-top: -30px;
+
+
+}
+
+#form-container4 {
+  padding: 30px 30px 30px 30px;
+  margin-left: 200px;
+  margin-right: 200px;
+  margin-top: 43px;
+  border-radius: 10px;
+  box-shadow: 1px 1px 25px #3D3D3D;
+  background-color: #E38451;
+
+}
 
 .campos {
   font-size: 20px;
@@ -47,7 +109,54 @@ body {
   margin-left: 45px;
   margin-bottom: 20px;
   border: none;
+border-radius: 3px;
 }
+
+
+.campos2 {
+  border-radius: 1px;
+  margin-left: 45px;
+  margin-bottom: 20px;
+  border: none;
+  padding-right: 200px;
+  border-radius: 3px;
+
+
+}
+
+.questioninput {
+  border-radius: 3px;
+  margin-top: 10px;
+  margin-left: 45px;
+  margin-bottom: 20px;
+  border: none;
+padding: 5px 420px 5px 20px;
+  border-radius: 3px;
+}
+
+
+.labelasnw {
+  border-radius: 3px;
+  margin-left: 45px;
+  margin-bottom: 20px;
+  border: none;
+  padding-right: 20px;
+  border-radius: 3px;
+
+
+}
+
+
+.answerinput {
+  border-radius: 3px;
+  background-color: white;
+  margin: 10px 35px 20px 0px;
+  padding: 5px 250px 5px 20px;
+
+
+  border: none;
+}
+
 
 
 .bottom1 {
@@ -103,12 +212,33 @@ body {
 }
 
 
-.login {
-margin-left: 70px;
-text-decoration: none;
-font-size: 15px;
-color: white;
+.bottom4 {
+      background-color: #3F4F64;
+      border: none;
+      color: white;
+      padding: 20px 19px;
+      text-align: center;
+      text-decoration: none;
+      display: inline-block;
+      font-size: 7px;
+      margin: 4px 90px;
+      cursor: pointer;
 }
+
+
+.bottom5 {
+      background-color: #3F4F64;
+      border: none;
+      color: white;
+      padding: 15px 35px;
+      text-align: center;
+      text-decoration: none;
+      display: inline-block;
+      font-size: 16px;
+      margin: 4px 70px;
+      cursor: pointer;
+}
+
 
 .account-message {
   font-size: 12px;
@@ -118,12 +248,49 @@ color: white;
 }
 
 
-.blockquestion {
-  background-color: #FF7777;
-  border-radius: 10px;
-
-
+.user {
+  text-align: center;
+  color: white;
 }
+
+.pick{
+  border-radius: 100px;
+  margin-left: 80px;
+  box-shadow: 0px 0px 10px  #1B3351;
+}
+
+.label {
+margin-top: 10px;
+font-size: 16px;
+border-radius: 10px;
+color: white;
+background-color: #C24B0B;
+padding: 30px 30px 20px 10px;
+}
+
+.label2 {
+margin-top: 10px;
+font-size: 16px;
+border-radius: 10px;
+color: white;
+background-color: #C24B0B;
+padding: 10px 30px 0px 10px;
+}
+
+
+.question {
+margin-top: 10px;
+font-size: 16px;
+border-radius: 10px;
+color: white;
+background-color: #C24B0B;
+padding: 30px 30px 20px 10px;
+}
+
+#new {
+  float:right;
+}
+
 .blockanswer {
   background-color: #FF7777;
   border-radius: 10px;
@@ -143,13 +310,7 @@ color: white;
 text-decoration: none;
 }
 
-.question {
-font-size: 32px;
-border-radius: 10px;
-margin-left: 35px;
-color: white;
-padding: 10px 0px 10px 0px;
-}
+
 
 .block {
   margin-top: 150px;
