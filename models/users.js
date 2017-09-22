@@ -7,7 +7,6 @@ const userSchema = new Schema({
   email: String,
   password: String,
   pick: String,
-  //answers: //ejercicio marc
   facebookID: String,
 }, {
   timestamps: { createdAt: "created_at", updatedAt: "updated_at" }
