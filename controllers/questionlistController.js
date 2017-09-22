@@ -12,14 +12,21 @@ module.exports = {
     }).catch( error => console.log(error));
   },
   readAnswer: (req, res, next) =>{
-    console.log(req.body);
+    const newAnswer = {
+      //mirar lo de params
+      questionID: param.question._id,
+      answer: req.body.result,
+      //userID :
+    };
+    console.log('esto es el req.body', req.body);
+
     res.send('holi');
     let answer = req.body;
-    answer.save()
-    .then(listGet())
-    .catch(e => res.render("questions/new", {
-      message: "Something went wrong"
-    }));
+    // answer.save()
+    // .then(listGet())
+    // .catch(e => res.render("questions/new", {
+    //   message: "Something went wrong"
+    // }));
     //guardar respuesta .then
     // busca una nueva then
     // envia la respuesta

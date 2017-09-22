@@ -8,7 +8,7 @@ $(function() {
       // borras la anterior
       // append la nueva
 
-      console.log(response);
+      console.log('Tenemos la respuesta', response);
 
 
     });
