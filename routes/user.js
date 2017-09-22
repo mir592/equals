@@ -27,11 +27,11 @@ router.post('/user/:id', (req, res, next) => {
     pick: req.body.pick,
   };
 
-  User.findByIdAndUpdate(userId, updates)
-    .save()
-    .then(user => res.redirect('login'))
-    .catch(e => res.render("/user/:id"));
-
+  User.findByIdAndUpdate(userId, updates, (err, user) => {
+    if(err) {return next(err); }
+    return res.redirect('/login');
+  });
 });
+
 
 module.exports = router;
