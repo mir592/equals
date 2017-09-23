@@ -5,14 +5,6 @@ module.exports = {
     res.render('questions/new');
   },
   newPost: (req, res, next) => {
-    // const questionInfo = {
-    //   question: req.body.question,
-    //   answA: req.body.answA,
-    //   answB: req.body.answB,
-    //   answC: req.body.answC,
-    //   answD: req.body.answD
-    // };
-
     const questionInfo = {
       question : req.body.question,
       answers : [ req.body.answA,
