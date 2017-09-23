@@ -1,7 +1,8 @@
 const Question = require('../models/questions');
-const Answers = require('../models/answers');
+const Answer = require('../models/answers');
 
 module.exports = {
+
   listGet: (req, res, next) => {
     Question.find({}).then( question => {
       let random = parseInt(Math.random()*question.length);
@@ -11,24 +12,20 @@ module.exports = {
       });
     }).catch( error => console.log(error));
   },
-  readAnswer: (req, res, next) =>{
-    const newAnswer = {
-      //mirar lo de params
-      questionID: param.question._id,
-      answer: req.body.result,
-      //userID :
-    };
-    console.log('esto es el req.body', req.body);
 
-    res.send('holi');
-    let answer = req.body;
-    // answer.save()
-    // .then(listGet())
-    // .catch(e => res.render("questions/new", {
-    //   message: "Something went wrong"
-    // }));
-    //guardar respuesta .then
-    // busca una nueva then
-    // envia la respuesta
+  readAnswer: (req, res, next) => {
+    const AnswerInfo = {
+      questionID: req.params.id,
+      answer: req.body.answer,
+      userID: req.user._id,
+    };
+    console.log(AnswerInfo);
+    //Ahora llega hasta aqui!
+    const newAnswer = new Answer(AnswerInfo);
+      newAnswer.save()
+      .then(answer => res.redirect("/questionsList"))
+      .catch(e => res.render("secret", {
+        message: "Something went wrong"
+      }));
   }
 };

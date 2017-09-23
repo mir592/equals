@@ -10,7 +10,7 @@ module.exports = {
       answers : [ req.body.answA,
                   req.body.answB,
                   req.body.answC,
-                  req.body.answD]
+                  req.body.answD ]
     };
 
     const newQuestion = new Question(questionInfo);
