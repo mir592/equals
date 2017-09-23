@@ -30,12 +30,6 @@ const questions = [{
       'Francisco Franco',
     ]
   }, {
-    question: '¿Serías capaz de perdonar una infidelidad si supieras que esa persona realmente te ama?',
-    answA: 'Sí',
-    answB: 'No',
-    answC: 'Tendría que vivirlo para saberlo',
-    answD: 'Jamás',
-  }, {
     question: '¿Qué ingrediente de estos te gusta más en la pizza?',
     answers: ['Bacon',
       'Atún',

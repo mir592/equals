@@ -1,11 +1,12 @@
 <form action="/questionsList/<%= question._id%>" method="POST" >
-<article class="container">
+<article id="form-container4">
   <header><h1><%= question.question %></h1></header>
   <div>
     <% question.answers.forEach( (answer, index) =>{ %>
-    <input type="radio" name="answer" value="<%= index %>"><%= answer %><br>
+    <input type="radio" name="answer" value="<%= index %>" class="label2 question"><%= answer %><br>
     <% }) %>
   </div>
   <button id="sendAnswer">Envía tu respuesta</button>
+  <a id="cancel" href="/secret">Go home</a>
 </article>
 </form>
