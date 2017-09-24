@@ -33,8 +33,6 @@ const questions = [{
       'Francisco Franco',
     ]
   }, {
-<<<<<<< HEAD
-=======
     question: '¿Serías capaz de perdonar una infidelidad si supieras que esa persona realmente te ama?',
     answers: ['Sí',
       'No',
@@ -42,7 +40,6 @@ const questions = [{
       'Jamás'
     ]
   }, {
->>>>>>> 3f27afdb9a8329be0cab637c4d5dc8b75d895d2d
     question: '¿Qué ingrediente de estos te gusta más en la pizza?',
     answers: ['Bacon',
       'Atún',

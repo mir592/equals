@@ -1,9 +1,3 @@
-<<<<<<< HEAD
-<form action="/questionsList/<%= question._id%>" method="POST" >
-<article id="form-container4">
-  <header><h1><%= question.question %></h1></header>
-  <div>
-=======
 <a href="/"><img class="logoQuestion" src="/image/e.png" alt=""></a>
 <h2 id="signup">Nueva pregunta</h2>
 <a  class="CompareList" href="/compare">CALCULAR EQUALS</a>
@@ -12,12 +6,10 @@
 <article>
   <header class="questionList" ><h1><%= question.question %></h1></header>
   <div class="labelquestion">
->>>>>>> 3f27afdb9a8329be0cab637c4d5dc8b75d895d2d
     <% question.answers.forEach( (answer, index) =>{ %>
     <input type="radio" name="answer" value="<%= index %>" class="label2 question"><%= answer %><br>
     <% }) %>
   </div>
   <button id="sendAnswer">Envía tu respuesta</button>
-  <a id="cancel" href="/secret">Go home</a>
 </article>
 </form>
