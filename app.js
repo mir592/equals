@@ -9,6 +9,7 @@ const authController = require('./routes/auth');
 const newController = require('./routes/new');
 const questionsRoutes = require('./routes/questionsList');
 const userRoutes = require('./routes/user');
+const compare = require('./routes/compare');
 
 app.use((req, res, next) => {
   res.locals.user = req.user;
@@ -20,6 +21,7 @@ app.use('/', authController);
 app.use('/', newController);
 app.use('/', questionsRoutes);
 app.use('/', userRoutes);
+app.use('/', compare);
 
 require('./config/error-handler')(app);
 

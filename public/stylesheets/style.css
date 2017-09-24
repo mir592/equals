@@ -329,7 +329,7 @@ input[type="radio"] {
   text-align: center;
   text-decoration: none;
   display: inline-block;
-  font-size: 16px;
+  font-size: 14px;
   margin: 10px 190px;
   cursor: pointer;
   border-radius: 0px;
@@ -341,7 +341,7 @@ input[type="radio"] {
 
 .logoNew {
   height: 75px;
-  margin-left: 450px;
+  margin-left: 455px;
   margin-top: -300px;
 }
 
@@ -383,7 +383,7 @@ input[type="radio"] {
   border-radius: 3px;
 }
 
-#CreateNew {
+.CreateNew {
   background-color: #3F4F64;
   border: none;
   color: white;
@@ -395,4 +395,40 @@ input[type="radio"] {
   margin: 10px 250px;
   cursor: pointer;
   border-radius: 0px;
+}
+
+.CompareNew {
+  background-color: #C24B0B;
+  border: none;
+  color: white;
+  padding: 10px 35px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: -5px 10px 10px 415px;
+  cursor: pointer;
+  border-radius: 0px;
+}
+
+.CompareList {
+  background-color: #C24B0B;
+  border: none;
+  color: white;
+  padding: 10px 35px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: -5px 10px -15px 415px;
+  cursor: pointer;
+  border-radius: 0px;
+}
+
+.menuCompare {
+  text-align: center;
+  background-color: #C24B0B;
+  margin: 10px 1px 10px 10px;
+  padding: 10px;
+  box-shadow: 0px 0px 10px #1B3351;
 }
