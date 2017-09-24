@@ -1,7 +1,6 @@
 const express = require("express");
 const router = express.Router();
 const User = require("../models/users");
-//const newController = require('../controllers/newController');//
 
 
 router.get('/user/:id/edit', (req, res, next) => {
@@ -13,7 +12,6 @@ router.get('/user/:id/edit', (req, res, next) => {
     }))
     .catch(err => next(err));
 });
-
 
 
 router.post('/user/:id', (req, res, next) => {

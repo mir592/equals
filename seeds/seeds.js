@@ -1,9 +1,13 @@
 const mongoose = require('mongoose');
 const Question = require('../models/questions');
-const {dbURL} = require('../config/db');
+const {
+  dbURL
+} = require('../config/db');
 console.log(dbURL);
 
-mongoose.connect(dbURL, {useMongoClient: true})
+mongoose.connect(dbURL, {
+    useMongoClient: true
+  })
   .then(console.log("Dentro de DB"));
 
 
@@ -29,6 +33,16 @@ const questions = [{
       'Francisco Franco',
     ]
   }, {
+<<<<<<< HEAD
+=======
+    question: '¿Serías capaz de perdonar una infidelidad si supieras que esa persona realmente te ama?',
+    answers: ['Sí',
+      'No',
+      'Tendría que vivirlo para saberlo',
+      'Jamás'
+    ]
+  }, {
+>>>>>>> 3f27afdb9a8329be0cab637c4d5dc8b75d895d2d
     question: '¿Qué ingrediente de estos te gusta más en la pizza?',
     answers: ['Bacon',
       'Atún',
@@ -138,7 +152,7 @@ const questions = [{
 ];
 
 Question.create(questions)
-  .then( ques => {
+  .then(ques => {
     console.log(ques);
     mongoose.connection.close();
   });

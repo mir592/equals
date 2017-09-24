@@ -1,21 +1,26 @@
 
 
-<img class="logo" src="/image/e.png" alt="">
+<a href="/"><img class="logosignup" src="/image/e.png" alt=""></a>
 <h2 id="signup">Signup</h2>
-<form action="/signup" method="POST" id="form-container" enctype="multipart/form-data">
-  <input class="campos" id="name" type="text" name="name" placeholder="NAME">
-  <input class="campos" id="alias" type="text" name="alias" placeholder="ALIAS">
-  <input class="campos" id="email" type="email" name="email" placeholder="EMAIL">
-  <input class="campos" id="password" type="password" name="password" placeholder="PASSWORD">
-  <input class="bottom2" id="pick" type="file" name="pick">
+<form action="/signup" method="POST" id="form-signup" enctype="multipart/form-data">
+  <div>
+  <input class="campossignup" id="name" type="text" name="name" placeholder="NAME">
+  <input class="campossignup" id="alias" type="text" name="alias" placeholder="ALIAS">
+  </div>
+  <div>
+  <input class="campossignup" id="email" type="email" name="email" placeholder="EMAIL">
+  <input class="campossignup" id="password" type="password" name="password" placeholder="PASSWORD">
+  </div>
+  <div>
+  <input class="PickSignup" id="pick" type="file" name="pick">
+  </div>
   <% if (typeof message !== "undefined") { %>
     <div class="error-message"><%= message %></div>
   <% } %>
-  <br><br>
-  <input class="bottom1" type="submit" value="Create account">
+  <input class="CreateAccount" type="submit" value="Create account">
   <p class="account-message">
     Do you already have an account?
     <br>
-    <a class="login" href="/login">Login</a>
+    <a class="loginSignup" href="/login">Login</a>
   </p>
 </form>
