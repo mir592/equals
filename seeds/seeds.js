@@ -1,11 +1,10 @@
 const mongoose = require('mongoose');
-const User = require('../models/questions');
-const {
-  dbURL
-} = require('../config/db');
-mongoose.connect(dbURL, {
-  useMongoClient: true
-});
+const Question = require('../models/questions');
+const {dbURL} = require('../config/db');
+console.log(dbURL);
+
+mongoose.connect(dbURL, {useMongoClient: true})
+  .then(console.log("Dentro de DB"));
 
 
 const questions = [{
@@ -111,7 +110,7 @@ const questions = [{
     answers: ['Ficción',
       'No Ficción',
       '¿Leer?',
-      'Antes leía el la etiqueta del cahmpú, pero ya ni eso.',
+      'Antes leía la etiqueta del cahmpú, pero ya ni eso.',
     ]
   }, {
     question: '¿Qué te gusta más, los perros o los gatos?',
@@ -138,9 +137,8 @@ const questions = [{
 
 ];
 
-Question.create(questions, (err, docs) => {
-  if (err) {
-    throw err;
-  }
-  mongoose.connection.close();
-});
+Question.create(questions)
+  .then( ques => {
+    console.log(ques);
+    mongoose.connection.close();
+  });
