@@ -6,6 +6,9 @@ module.exports = {
   listGet: (req, res, next) => {
     Question.find({}).then( question => {
       let random = parseInt(Math.random()*question.length);
+// aquí hay que implementar que si el usuario ha respondido
+// a la pregunta y ya tiene una instancia de respuesta con un valor
+// (0,1,2 ò 3) no se muestre la pregunta para ese usuario
       console.log(question);
       res.render("questions/questionsList", {
         question: question[random]
@@ -20,7 +23,6 @@ module.exports = {
       userID: req.user._id,
     };
     console.log(AnswerInfo);
-    //Ahora llega hasta aqui!
     const newAnswer = new Answer(AnswerInfo);
       newAnswer.save()
       .then(answer => res.redirect("/questionsList"))

@@ -1,32 +1,32 @@
-<img class="logo" src="/image/e.png" alt="">
+<a href="/"><img class="logoNew" src="/image/e.png" alt=""></a>
 <h2 id="signup">Añadir pregunta</h2>
-<form id="form-container4" action="/new" method="POST">
-  <div class="question">
-    <label class="campos2" for="question">Añade una pregunta: </label>
-    <input  class="questioninput" type="question" name="question">
+<form id="form-questionNew" action="/new" method="POST">
+  <div class="questionnew">
+    <label class="camposNew" for="question">Añade una pregunta: </label>
+    <input  class="questionNew" type="question" name="question">
   </div>
-  <div class="label2">
-    <label class="labelasnw"  for="answA">Añadir repuesta A</label>
-    <input class="answerinput"  type="answA" name="answA">
+  <div class="questionnew">
+    <label class="camposNew"  for="answA">Añadir repuesta A</label>
+    <input class="questionNew"  type="answA" name="answA">
   </div>
-<div class="label2">
-    <label class="labelasnw"  for="answB">Añadir repuesta B</label>
-    <input class="answerinput"  type="answB" name="answB">
+<div class="questionnew">
+    <label class="camposNew"  for="answB">Añadir repuesta B</label>
+    <input class="questionNew"  type="answB" name="answB">
   </div>
 
-<div class="label2">
-      <label class="labelasnw"  for="answC">Añadir repuesta C</label>
-      <input class="answerinput"  type="answC" name="answC">
+<div class="questionnew">
+      <label class="camposNew"  for="answC">Añadir repuesta C</label>
+      <input class="questionNew"  type="answC" name="answC">
     </div>
 
-<div class="label2">
-      <label class="labelasnw" for="answD">Añadir repuesta D</label>
-      <input class="answerinput"  type="answD" name="answD">
+<div class="questionnew">
+      <label class="camposNew" for="answD">Añadir repuesta D</label>
+      <input class="questionNew"  type="answD" name="answD">
     </div>
   <% if (typeof message != "undefined") { %>
     <div class="error-message"><%= message %></div>
   <% } %>
   <div>
-    <input id="new" type="submit" value="NEW">
+    <input id="CreateNew" type="submit" value="NEW">
   </div>
 </form>

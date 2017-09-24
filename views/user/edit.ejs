@@ -1,12 +1,15 @@
-<img class="logo" src="/image/e.png" alt="">
+<a href="/"><img class="logoLogin" src="/image/e.png" alt=""></a>
 <h2 id="signup">Update</h2>
-
-<form action="/user/<%= user._id %>" method="POST" id="form-container">
-  <input class="campos" type="text" id="name" name="name" placeholder="NAME" value="<%= user.name %>">
-  <input class="campos" type="text" name="alias" placeholder="ALIAS" id="alias" value="<%= user.alias %>">
-  <input class="campos" type="email" name="email" id="email" placeholder="PASSWORD" value="<%= user.email %>">
-  <input class="campos" type="password" name="password" id="password" value="<%= user.password %>" placeholder="PASSWORD">
-  <input class="bottom5" type="submit" value="Update user">
+<form action="/user/<%= user._id %>" method="POST" id="form-edit">
+<div>
+<input class="camposedit" type="text" id="name" name="name" placeholder="NAME" value="<%= user.name %>">
+  <input class="camposedit" type="text" name="alias" placeholder="ALIAS" id="alias" value="<%= user.alias %>">
+</div>
+<div>
+  <input class="camposedit" type="email" name="email" id="email" placeholder="PASSWORD" value="<%= user.email %>">
+  <input class="camposedit" type="password" name="password" id="password" value="<%= user.password %>" placeholder="PASSWORD">
+</div>
+  <input class="updateAccount" type="submit" value="Update user">
   <a id="cancel" href="/secret">Cancel</a>
 
 </form>

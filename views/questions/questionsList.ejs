@@ -1,7 +1,9 @@
-<form action="/questionsList/<%= question._id%>" method="POST" >
-<article class="container">
-  <header><h1><%= question.question %></h1></header>
-  <div>
+<a href="/"><img class="logoQuestion" src="/image/e.png" alt=""></a>
+<h2 id="signup">Nueva pregunta</h2>
+<form id="form-questionList" action="/questionsList/<%= question._id%>" method="POST" >
+<article>
+  <header class="questionList" ><h1><%= question.question %></h1></header>
+  <div class="labelquestion">
     <% question.answers.forEach( (answer, index) =>{ %>
     <input type="radio" name="answer" value="<%= index %>"><%= answer %><br>
     <% }) %>
